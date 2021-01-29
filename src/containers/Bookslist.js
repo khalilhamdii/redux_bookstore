@@ -6,18 +6,22 @@ function BookList(props) {
   const { books } = props;
   return (
     <table>
-      <tr>
-        <th>Book ID</th>
-        <th>Title</th>
-        <th>category</th>
-      </tr>
-      {books.map(book => (
-        <tr key={book.id.toString()}>
-          <th>{book.id}</th>
-          <th>{book.title}</th>
-          <th>{book.category}</th>
+      <thead>
+        <tr>
+          <th>Book ID</th>
+          <th>Title</th>
+          <th>category</th>
         </tr>
-      ))}
+      </thead>
+      <tbody>
+        {books.map(book => (
+          <tr key={book.id.toString()}>
+            <th>{book.id}</th>
+            <th>{book.title}</th>
+            <th>{book.category}</th>
+          </tr>
+        ))}
+      </tbody>
     </table>
   );
 }

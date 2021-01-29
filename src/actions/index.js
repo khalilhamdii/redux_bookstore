@@ -1,12 +1,12 @@
 export const CREATE_BOOK = 'CREATE_BOOK';
 export const REMOVE_BOOK = 'REMOVE_BOOK';
 
-// let nextBookId = 0;
+const nextBookId = 3;
 
 export const createBook = book => ({
   type: CREATE_BOOK,
   payload: {
-    book,
+    book: { ...book, id: nextBookId + 1 },
   },
 });
 
