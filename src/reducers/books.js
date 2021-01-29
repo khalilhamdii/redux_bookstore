@@ -12,7 +12,7 @@ export default function (state = initialState, action) {
     }
     case REMOVE_BOOK: {
       const { id } = action.payload;
-      return state.map(book => book.id !== id);
+      return state.filter(book => book.id !== id);
     }
     default:
       return state;

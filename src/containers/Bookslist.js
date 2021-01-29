@@ -1,9 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Book from '../components/Book';
+import { removeBook } from '../actions/index';
 // import PropTypes from 'prop-types';
 /* eslint-disable react/prop-types */
 function BookList(props) {
   const { books } = props;
+  const handleRemoveBook = book => {
+    props.removeBook(book);
+  };
   return (
     <table>
       <thead>
@@ -15,11 +20,7 @@ function BookList(props) {
       </thead>
       <tbody>
         {books.map(book => (
-          <tr key={book.id.toString()}>
-            <th>{book.id}</th>
-            <th>{book.title}</th>
-            <th>{book.category}</th>
-          </tr>
+          <Book key={book.id} book={book} handleRemoveBook={handleRemoveBook} />
         ))}
       </tbody>
     </table>
@@ -34,4 +35,4 @@ BookList.defaultProps = { books: [] };
 
 const mapStateToProps = state => ({ books: state.books });
 
-export default connect(mapStateToProps)(BookList);
+export default connect(mapStateToProps, { removeBook })(BookList);
