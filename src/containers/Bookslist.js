@@ -4,35 +4,23 @@ import { connect } from 'react-redux';
 class BookList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
   }
 
   render() {
     return (
       <table>
-        <tr>
-          <th>Book ID</th>
-          <th>Title</th>
-          <th>Category</th>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Book 1</td>
-          <td>Romance</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Book 2</td>
-          <td>Adventure</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Book 3</td>
-          <td>Thriller</td>
-        </tr>
+        {this.props.books.map(book => (
+          <tr>
+            <th>{book.id}</th>
+            <th>{book.title}</th>
+            <th>{book.category}</th>
+          </tr>
+        ))}
       </table>
     );
   }
 }
 
-export default connect(action)(BookList);
+const mapStateToProps = state => ({ books: state });
+
+export default connect(mapStateToProps)(BookList);

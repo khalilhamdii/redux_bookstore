@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 function Book(props) {
-  const book = props.book;
+  const { book } = props;
   return (
     <tr>
       <th>{book.id}</th>
@@ -9,5 +11,11 @@ function Book(props) {
     </tr>
   );
 }
+
+Book.propTypes = {
+  book: PropTypes.object,
+};
+
+Book.defaultProps = { book: {} };
 
 export default Book;

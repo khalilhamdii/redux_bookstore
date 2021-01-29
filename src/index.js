@@ -1,8 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import App from './App';
-import store from './app/store';
+import { createStore } from 'redux';
+import App from './components/App';
+import rootReducer from './reducers/index';
+
+const initialState = {
+  books: [
+    { id: 1, title: 'Book 1', category: 'Action' },
+    { id: 2, title: 'Book 2', category: 'Horror' },
+    { id: 3, title: 'Book 2', category: 'History' },
+  ],
+};
+
+const store = createStore(rootReducer, initialState);
 
 ReactDOM.render(
   <React.StrictMode>
