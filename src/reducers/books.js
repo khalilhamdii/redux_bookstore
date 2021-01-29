@@ -1,10 +1,14 @@
 import { CREATE_BOOK, REMOVE_BOOK } from '../actions/index';
 
-export default function (state, action) {
+const initialState = {
+  books: [],
+};
+
+export default function (state = initialState, action) {
   switch (action.type) {
     case CREATE_BOOK: {
-      const { id, title, category } = action.payload;
-      return [...state, { id, title, category }];
+      const { book } = action.payload;
+      return [...state, book];
     }
     case REMOVE_BOOK: {
       const { id } = action.payload;

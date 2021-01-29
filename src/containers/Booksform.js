@@ -1,20 +1,20 @@
 import React from 'react';
-
+/* eslint-disable react/jsx-key */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 function BooksForm() {
   const CATEGORIES = ['Action', 'Biography', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
-  const addCategory = () => {
-    CATEGORIES.map(category => <option>{category}</option>);
-  };
   return (
     <form>
       <label>Book Title</label>
       <input />
-      <label htmlFor="categories">Categories</label>
+      <label>Categories</label>
       <select>
         <option value="">Select book category</option>
-        {addCategory()}
+        {CATEGORIES.map(category => (
+          <option>{category}</option>
+        ))}
       </select>
-      <button>Submit</button>
+      <button type="button">Submit</button>
     </form>
   );
 }

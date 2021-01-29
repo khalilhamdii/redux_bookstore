@@ -13,7 +13,7 @@ function Book(props) {
 }
 
 Book.propTypes = {
-  book: PropTypes.object,
+  book: PropTypes.objectOf(PropTypes.object()),
 };
 
 Book.defaultProps = { book: {} };
