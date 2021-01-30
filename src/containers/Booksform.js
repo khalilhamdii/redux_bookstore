@@ -5,7 +5,6 @@ import { createBook } from '../actions/index';
 /* eslint-disable react/jsx-key */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/prop-types */
-
 function BooksForm(props) {
   const [title, setTitle] = useState('');
   const [category, setCategory] = useState('');
@@ -22,9 +21,7 @@ function BooksForm(props) {
     setTitle('');
     setCategory('');
   };
-
   const CATEGORIES = ['Action', 'Biography', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
-
   const getKey = category => {
     const key = CATEGORIES.indexOf(category);
     return key.toString();
@@ -35,8 +32,8 @@ function BooksForm(props) {
       <label>Book Title</label>
       <input value={title} onChange={e => handleChange(e.target)} />
       <label>Categories</label>
-      <select value={category} onChange={e => handleChange(e.target)}>
-        <option key={7} value="">
+      <select onChange={e => handleChange(e.target)}>
+        <option key={7} value="" disabled>
           Select book category
         </option>
         {CATEGORIES.map(category => (
