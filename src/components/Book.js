@@ -5,7 +5,7 @@ import React from 'react';
 function Book(props) {
   const { book } = props;
   return (
-    <tr key={book.toString()}>
+    <tr>
       <th>{book.id}</th>
       <th>{book.title}</th>
       <th>{book.category}</th>
