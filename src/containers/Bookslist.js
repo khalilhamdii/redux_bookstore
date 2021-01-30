@@ -6,6 +6,7 @@ import { removeBook } from '../actions/index';
 /* eslint-disable react/prop-types */
 function BookList(props) {
   const { books } = props;
+  console.log(books);
   const handleRemoveBook = book => {
     props.removeBook(book);
   };
@@ -19,9 +20,11 @@ function BookList(props) {
         </tr>
       </thead>
       <tbody>
-        {books.map(book => (
-          <Book key={book.id} book={book} handleRemoveBook={handleRemoveBook} />
-        ))}
+        {books.length > 0
+          ? books.map(book => (
+            <Book key={book.id} book={book} handleRemoveBook={handleRemoveBook} />
+          ))
+          : null}
       </tbody>
     </table>
   );
@@ -33,6 +36,9 @@ function BookList(props) {
 
 BookList.defaultProps = { books: [] };
 
-const mapStateToProps = state => ({ books: state.books });
+const mapStateToProps = state => {
+  const { books } = state;
+  return books;
+};
 
 export default connect(mapStateToProps, { removeBook })(BookList);

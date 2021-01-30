@@ -5,15 +5,15 @@ import { createStore } from 'redux';
 import App from './components/App';
 import rootReducer from './reducers/index';
 
-const initialState = {
-  books: [
-    { id: 1, title: 'Book 1', category: 'Action' },
-    { id: 2, title: 'Book 2', category: 'Horror' },
-    { id: 3, title: 'Book 3', category: 'History' },
-  ],
-};
+// const initialState = {
+//   books: [
+//     { id: 1, title: 'Book 1', category: 'Action' },
+//     { id: 2, title: 'Book 2', category: 'Horror' },
+//     { id: 3, title: 'Book 3', category: 'History' },
+//   ],
+// };
 
-const store = createStore(rootReducer, initialState);
+const store = createStore(rootReducer);
 
 ReactDOM.render(
   <React.StrictMode>

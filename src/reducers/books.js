@@ -2,17 +2,19 @@ import { CREATE_BOOK, REMOVE_BOOK } from '../actions/index';
 
 const initialState = {
   books: [],
+  filter: '',
 };
 
-export default function (state = initialState, action) {
+export default function books(state = initialState, action) {
   switch (action.type) {
     case CREATE_BOOK: {
       const { book } = action.payload;
-      return [...state, book];
+      console.log(state);
+      return { ...state, books: [...state.books, book] };
     }
     case REMOVE_BOOK: {
       const { id } = action.payload;
-      return state.filter(book => book.id !== id);
+      return { ...state, books: state.books.filter(book => book.id !== id) };
     }
     default:
       return state;
