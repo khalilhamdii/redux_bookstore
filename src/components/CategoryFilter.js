@@ -22,14 +22,23 @@ function CategoryFilter(props) {
     props.handleFilterChange(filter);
   };
   return (
-    <select onChange={e => handleFilterChange(e.target)}>
-      <option key={7} value="" disabled>
-        Filter book by category
-      </option>
-      {CATEGORIES.map(category => (
-        <option key={getKey(category)}>{category}</option>
-      ))}
-    </select>
+    <div className="mb-4">
+      <span className="ml-4" style={{ color: 'var(--gray)' }}>
+        FILTER BY CATEGORY :
+      </span>
+      <select
+        onChange={e => handleFilterChange(e.target)}
+        className="ml-2"
+        style={{ height: '45px', color: 'var(--gray)', border: '1px solid #e8e8e8' }}
+      >
+        <option key={7} value="" selected disabled>
+          Filter by category
+        </option>
+        {CATEGORIES.map(category => (
+          <option key={getKey(category)}>{category}</option>
+        ))}
+      </select>
+    </div>
   );
 }
 

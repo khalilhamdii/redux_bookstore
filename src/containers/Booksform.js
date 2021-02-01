@@ -48,14 +48,12 @@ function BooksForm(props) {
           onChange={e => handleChange(e.target)}
           style={{ height: '45px', color: 'var(--gray)', border: '1px solid #e8e8e8' }}
         >
-          {/* <option key={7} value="">
-          Select book category
-        </option> */}
-          <optgroup label="Select category">
-            {CATEGORIES.map(category => (
-              <option key={getKey(category)}>{category}</option>
-            ))}
-          </optgroup>
+          <option key={7} value="" selected disabled>
+            Select book category
+          </option>
+          {CATEGORIES.map(category => (
+            <option key={getKey(category)}>{category}</option>
+          ))}
         </select>
 
         <input
