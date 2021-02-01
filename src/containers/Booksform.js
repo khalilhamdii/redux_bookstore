@@ -28,20 +28,44 @@ function BooksForm(props) {
   };
 
   return (
-    <form onSubmit={event => handleSubmit(event)}>
-      <label>Book Title</label>
-      <input value={title} onChange={e => handleChange(e.target)} />
-      <label>Categories</label>
-      <select onChange={e => handleChange(e.target)}>
-        <option key={7} value="" disabled>
+    <div style={{ padding: '30px' }}>
+      <h1 style={{ fontSize: '20px', fontWeight: 'bold', color: 'var(--gray)' }}>ADD NEW BOOK</h1>
+      <form
+        className="d-md-flex d-lg-flex justify-content-between align-items-lg-center mt-3"
+        onSubmit={event => handleSubmit(event)}
+      >
+        <input
+          type="text"
+          className="col-lg-6"
+          placeholder="Book title"
+          value={title}
+          onChange={e => handleChange(e.target)}
+          style={{ height: '45px', border: '1px solid #e8e8e8' }}
+        />
+
+        <select
+          className="col-lg-3"
+          onChange={e => handleChange(e.target)}
+          style={{ height: '45px', color: 'var(--gray)', border: '1px solid #e8e8e8' }}
+        >
+          {/* <option key={7} value="">
           Select book category
-        </option>
-        {CATEGORIES.map(category => (
-          <option key={getKey(category)}>{category}</option>
-        ))}
-      </select>
-      <input type="submit" value="Submit" />
-    </form>
+        </option> */}
+          <optgroup label="Select category">
+            {CATEGORIES.map(category => (
+              <option key={getKey(category)}>{category}</option>
+            ))}
+          </optgroup>
+        </select>
+
+        <input
+          className="btn btn-primary col-lg-2"
+          style={{ height: '45px', background: '#0290ff', fontSize: '13px' }}
+          type="submit"
+          value="ADD BOOK"
+        />
+      </form>
+    </div>
   );
 }
 
