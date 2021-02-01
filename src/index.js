@@ -9,9 +9,9 @@ import rootReducer from './reducers/index';
 const initialState = {
   books: {
     books: [
-      { id: 1, title: 'Book 1', category: 'Action' },
-      { id: 2, title: 'Book 2', category: 'Horror' },
-      { id: 3, title: 'Book 3', category: 'History' },
+      { id: 1, title: 'The Hunger Games', category: 'Action' },
+      { id: 2, title: 'Dune', category: 'Sci-Fi' },
+      { id: 3, title: 'Game of Thrones', category: 'History' },
     ],
   },
 };

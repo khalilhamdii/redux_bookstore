@@ -16,22 +16,12 @@ function BookList(props) {
   return (
     <>
       <CategoryFilter handleFilterChange={handleFilterChange} />
-      <table>
-        <thead>
-          <tr>
-            <th>Book ID</th>
-            <th>Title</th>
-            <th>category</th>
-          </tr>
-        </thead>
-        <tbody>
-          {books.length > 0
-            ? books.map(book => (
-              <Book key={book.id} book={book} handleRemoveBook={handleRemoveBook} />
-            ))
-            : null}
-        </tbody>
-      </table>
+
+      {books.length > 0
+        ? books.map(book => (
+          <Book key={book.id} book={book} handleRemoveBook={handleRemoveBook} />
+        ))
+        : null}
     </>
   );
 }
